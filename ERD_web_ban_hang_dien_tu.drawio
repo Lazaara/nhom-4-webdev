@@ -1,0 +1,143 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.6">
+  <diagram id="ERD2" name="ERD - Clean Routes">
+    <mxGraphModel dx="1959" dy="2074" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="u" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1565C0;fontColor=#0D47A1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=11;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;USERS&lt;/b&gt;&lt;br&gt;PK id&lt;br&gt;email (UNIQUE)&lt;br&gt;password_hash&lt;br&gt;full_name&lt;br&gt;phone&lt;br&gt;created_at&lt;/font&gt;" vertex="1">
+          <mxGeometry height="165" width="250" x="100" y="17.5" as="geometry" />
+        </mxCell>
+        <mxCell id="r" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;fontColor=#4A148C;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=11;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 18px;&quot;&gt;&lt;b style=&quot;&quot;&gt;ROLES&lt;/b&gt;&lt;br&gt;PK id&lt;br&gt;name (UNIQUE)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="210" x="480" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ur" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#EF6C00;fontColor=#E65100;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=11;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 16px;&quot;&gt;&lt;b style=&quot;&quot;&gt;USER_ROLES&lt;/b&gt;&lt;br&gt;PK (user_id, role_id)&lt;br&gt;FK user_id → USERS.id&lt;br&gt;FK role_id → ROLES.id&lt;br&gt;created_at&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="200" x="890" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE7F6;strokeColor=#4527A0;fontColor=#311B92;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=11;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;CATEGORIES&lt;/b&gt;&lt;br&gt;PK id&lt;br&gt;FK parent_id → CATEGORIES.id (nullable)&lt;br&gt;name&lt;br&gt;slug (UNIQUE)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="140" width="300" x="1190" y="42.5" as="geometry" />
+        </mxCell>
+        <mxCell id="a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#1B5E20;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=11;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;ADDRESSES&lt;/b&gt;&lt;br&gt;PK id&lt;br&gt;FK user_id → USERS.id&lt;br&gt;label&lt;br&gt;recipient_name&lt;br&gt;phone&lt;br&gt;line1&lt;br&gt;ward, district, city&lt;br&gt;is_default&lt;/font&gt;" vertex="1">
+          <mxGeometry height="195" width="270" x="130" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="ca" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDE7;strokeColor=#F9A825;fontColor=#7F6000;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=11;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 16px;&quot;&gt;&lt;b style=&quot;&quot;&gt;CARTS&lt;/b&gt;&lt;br&gt;PK id&lt;br&gt;FK user_id → USERS.id&lt;br&gt;status&lt;br&gt;created_at&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="240" x="560" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="m27-jQi3mDdeXSQEs-8h-1" edge="1" parent="1" source="p" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="ci" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8EAF6;strokeColor=#283593;fontColor=#1A237E;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=11;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;PRODUCTS&lt;/b&gt;&lt;br&gt;PK id&lt;br&gt;FK category_id → CATEGORIES.id&lt;br&gt;name&lt;br&gt;sku (UNIQUE)&lt;br&gt;price&lt;br&gt;stock&lt;br&gt;status&lt;br&gt;created_at&lt;/font&gt;" vertex="1">
+          <mxGeometry height="190" width="300" x="1290" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="pi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3F4F6;strokeColor=#374151;fontColor=#111827;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=11;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;PRODUCT_IMAGES&lt;/b&gt;&lt;br&gt;PK id&lt;br&gt;FK product_id → PRODUCTS.id&lt;br&gt;url&lt;br&gt;sort_order&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="270" x="1770" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="ci" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F8E9;strokeColor=#558B2F;fontColor=#33691E;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=11;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 15px;&quot;&gt;&lt;b style=&quot;&quot;&gt;CART_ITEMS&lt;/b&gt;&lt;br&gt;PK (cart_id, product_id)&lt;br&gt;FK cart_id → CARTS.id&lt;br&gt;FK product_id → PRODUCTS.id&lt;br&gt;quantity&lt;br&gt;unit_price&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="960" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="o" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#C62828;fontColor=#B71C1C;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=11;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;ORDERS&lt;/b&gt;&lt;br&gt;PK id&lt;br&gt;FK user_id → USERS.id&lt;br&gt;FK address_id → ADDRESSES.id&lt;br&gt;subtotal&lt;br&gt;shipping_fee&lt;br&gt;total&lt;br&gt;status&lt;br&gt;created_at&lt;/font&gt;" vertex="1">
+          <mxGeometry height="180" width="270" x="120" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="oi" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4EC;strokeColor=#AD1457;fontColor=#880E4F;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=11;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;ORDER_ITEMS&lt;/b&gt;&lt;br&gt;PK (order_id, product_id)&lt;br&gt;FK order_id → ORDERS.id&lt;br&gt;FK product_id → PRODUCTS.id&lt;br&gt;quantity&lt;br&gt;unit_price&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="300" x="640" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="pay" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F7FA;strokeColor=#00838F;fontColor=#006064;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;fontSize=11;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;PAYMENTS&lt;/b&gt;&lt;br&gt;PK id&lt;br&gt;FK order_id → ORDERS.id&lt;br&gt;method&lt;br&gt;provider_txn_id (UNIQUE)&lt;br&gt;status&lt;br&gt;amount&lt;br&gt;paid_at&lt;/font&gt;" vertex="1">
+          <mxGeometry height="180" width="320" x="1070" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="e_u_a" edge="1" parent="1" source="u" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#455A64;labelBackgroundColor=#ffffff;" target="a" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;1 — N&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="235" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_u_ca" edge="1" parent="1" source="u" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#455A64;labelBackgroundColor=#ffffff;" target="ca" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;1 — N&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="140" />
+              <mxPoint x="450" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_u_ur" edge="1" parent="1" source="u" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#455A64;labelBackgroundColor=#ffffff;" target="ur" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 24px;&quot;&gt;N — N (via USER_ROLES)&lt;/font&gt;">
+          <mxGeometry relative="1" x="0.0847" y="45" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="990" y="40" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_r_ur" edge="1" parent="1" source="r" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#455A64;labelBackgroundColor=#ffffff;" target="ur" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;N — N (via USER_ROLES)&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_c_p" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#455A64;labelBackgroundColor=#ffffff;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;1 — N&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1250" y="205" />
+              <mxPoint x="1250" y="265" />
+              <mxPoint x="1120" y="265" />
+            </Array>
+            <mxPoint x="1250" y="180" as="sourcePoint" />
+            <mxPoint x="1120" y="285" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_p_pi" edge="1" parent="1" source="p" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#455A64;labelBackgroundColor=#ffffff;" target="pi" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 18px;&quot;&gt;1 — N&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1880" y="310" />
+              <mxPoint x="1880" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_ca_ci" edge="1" parent="1" source="ca" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#455A64;labelBackgroundColor=#ffffff;" target="ci" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;1 — N&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="360" />
+              <mxPoint x="690" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_u_o" edge="1" parent="1" source="u" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#455A64;labelBackgroundColor=#ffffff;" target="o" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;1 — N&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="50" y="140" />
+              <mxPoint x="50" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_o_a" edge="1" parent="1" source="o" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#455A64;labelBackgroundColor=#ffffff;" target="a" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;N — 1 (ship to)&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="60" y="610" />
+              <mxPoint x="60" y="355" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_o_oi" edge="1" parent="1" source="o" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#455A64;labelBackgroundColor=#ffffff;" target="oi" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 16px;&quot;&gt;1 — N&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_p_oi" edge="1" parent="1" source="p" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#455A64;labelBackgroundColor=#ffffff;" target="oi" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 16px;&quot;&gt;1 — N&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1370" y="620" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_o_pay" edge="1" parent="1" source="o" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;endFill=1;strokeColor=#455A64;labelBackgroundColor=#ffffff;" target="pay" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 16px;&quot;&gt;1 — N&lt;/font&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="735" />
+              <mxPoint x="880" y="735" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m27-jQi3mDdeXSQEs-8h-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;1---N&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="1210" y="320" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
