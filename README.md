@@ -10,13 +10,23 @@ Thành viên nhóm:
 | 31241024126 | Nguyễn Quốc Hưng       | [@QuocHung0901](https://github.com/QuocHung0901)     |                 |
 | 31241024729 | Lam Chí Hiển             | [@HeinCheese ](https://github.com/HeinCheese)      |                 |
 
-#
+<details>
+  <summary><b>Sơ đồ Functional (Nhấn để xem)</b></summary>
+  <br>
+  
+  ![Sơ đồ Functional](https://github.com/Lazaara/nhom-4-webdev/blob/s%C6%A1-%C4%91%E1%BB%93-ERP/docs/diagrams/png/Function%20Diagrams.png?raw=true)
+</details>
 
-Sơ đồ Functional:
-![Sơ đồ Functional](https://github.com/Lazaara/nhom-4-webdev/blob/s%C6%A1-%C4%91%E1%BB%93-ERP/docs/diagrams/png/Function%20Diagrams.png)
+<details>
+  <summary><b>Sơ đồ ERD (Nhấn để xem)</b></summary>
+  <br>
+  
+  ![Sơ đồ ERD](https://github.com/Lazaara/nhom-4-webdev/blob/s%C6%A1-%C4%91%E1%BB%93-ERP/docs/diagrams/png/ERD%20Diagram.png?raw=true)
+</details>
 
-Sơ đồ ERD:
-![Sơ đồ ERD](https://github.com/Lazaara/nhom-4-webdev/blob/s%C6%A1-%C4%91%E1%BB%93-ERP/docs/diagrams/png/ERD%20Diagram.png)
-
-Sơ đồ OOP:
-![Sơ đồ OOP](https://github.com/Lazaara/nhom-4-webdev/blob/s%C6%A1-%C4%91%E1%BB%93-ERP/docs/diagrams/png/OOP%20Diagram.png)
+<details>
+  <summary><b>Sơ đồ OOP (Nhấn để xem)</b></summary>
+  <br>
+  
+  ![Sơ đồ OOP](https://github.com/Lazaara/nhom-4-webdev/blob/s%C6%A1-%C4%91%E1%BB%93-ERP/docs/diagrams/png/OOP%20Diagram.png?raw=true)
+</details>
