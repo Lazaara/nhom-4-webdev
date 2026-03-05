@@ -1,0 +1,95 @@
+1. Tìm kiếm sản phẩm theo tên
+
+DELIMITER //
+CREATE PROCEDURE SearchProductByName(IN search_term VARCHAR(255))
+BEGIN
+    SELECT * FROM products 
+    WHERE name LIKE CONCAT('%', search_term, '%')
+    AND status = 'active'; -- Giả sử chỉ lấy sản phẩm đang kinh doanh
+END //
+DELIMITER ;
+
+2. Liệt kê sản phẩm theo danh mục
+
+DELIMITER //
+CREATE PROCEDURE GetProductsByCategory(IN cat_id BIGINT)
+BEGIN
+    SELECT p.id, p.name, p.price, p.stock, c.name AS category_name
+    FROM products p
+    JOIN categories c ON p.category_id = c.id
+    WHERE p.category_id = cat_id;
+END //
+DELIMITER ;
+
+3. Lấy thông tin chi tiết đơn hàng
+
+DELIMITER //
+CREATE PROCEDURE GetOrderDetail(IN target_order_id BIGINT)
+BEGIN
+    SELECT o.id AS order_id, o.total, oi.product_id, p.name, oi.quantity, oi.unit_price
+    FROM orders o
+    JOIN order_items oi ON o.id = oi.order_id
+    JOIN products p ON oi.product_id = p.id
+    WHERE o.id = target_order_id;
+END //
+DELIMITER ;
+
+4. Xem giỏ hàng của người dùng
+
+DELIMITER //
+CREATE PROCEDURE GetUserCart(IN target_user_id BIGINT)
+BEGIN
+    SELECT ci.id, p.name, ci.quantity, ci.unit_price, (ci.quantity * ci.unit_price) AS subtotal
+    FROM carts c
+    JOIN cart_items ci ON c.id = ci.cart_id
+    JOIN products p ON ci.product_id = p.id
+    WHERE c.user_id = target_user_id;
+END //
+DELIMITER ;
+
+5. Cập nhật số lượng sản phẩm trong kho (Update Stock)
+
+DELIMITER //
+CREATE PROCEDURE UpdateProductStock(IN prod_id BIGINT, IN change_amount INT)
+BEGIN
+    UPDATE products 
+    SET stock = stock + change_amount 
+    WHERE id = prod_id;
+END //
+DELIMITER ;
+
+6. Thống kê tổng doanh thu theo người dùng
+
+DELIMITER //
+CREATE PROCEDURE GetUserTotalSpending(IN target_user_id BIGINT, OUT total_spent DECIMAL(12,2))
+BEGIN
+    SELECT SUM(total) INTO total_spent
+    FROM orders
+    WHERE user_id = target_user_id AND status = 'completed'; -- Giả sử status là completed
+END //
+DELIMITER ;
+
+7. Liệt kê các địa chỉ của người dùng
+
+DELIMITER //
+CREATE PROCEDURE GetUserAddresses(IN target_user_id BIGINT)
+BEGIN
+    SELECT recipient_name, phone, line1, city, is_default
+    FROM addresses
+    WHERE user_id = target_user_id
+    ORDER BY is_default DESC;
+END //
+DELIMITER ;
+
+8. Lấy danh sách sản phẩm bán chạy
+
+CREATE PROCEDURE GetTopSellingProducts(IN top_limit INT)
+BEGIN
+    SELECT p.id, p.name, SUM(oi.quantity) AS total_sold
+    FROM products p
+    JOIN order_items oi ON p.id = oi.product_id
+    GROUP BY p.id
+    ORDER BY total_sold DESC
+    LIMIT top_limit;
+END //
+DELIMITER ;
