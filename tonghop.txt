@@ -39,11 +39,11 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE GetUserCart(IN target_user_id BIGINT)
 BEGIN
-    SELECT ci.id, p.name, ci.quantity, ci.unit_price, (ci.quantity * ci.unit_price) AS subtotal
+    SELECT ci.product_id, p.name, ci.quantity, ci.unit_price, (ci.quantity * ci.unit_price) AS subtotal
     FROM carts c
     JOIN cart_items ci ON c.id = ci.cart_id
     JOIN products p ON ci.product_id = p.id
-    WHERE c.user_id = target_user_id;
+    WHERE c.user_id = target_user_id AND c.status = 'active';
 END //
 DELIMITER ;
 
@@ -74,7 +74,7 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE GetUserAddresses(IN target_user_id BIGINT)
 BEGIN
-    SELECT recipient_name, phone, line1, city, is_default
+    SELECT recipient_name, phone, line1, ward, district, city, is_default
     FROM addresses
     WHERE user_id = target_user_id
     ORDER BY is_default DESC;
@@ -83,6 +83,7 @@ DELIMITER ;
 
 8. Lấy danh sách sản phẩm bán chạy
 
+DELIMITER //
 CREATE PROCEDURE GetTopSellingProducts(IN top_limit INT)
 BEGIN
     SELECT p.id, p.name, SUM(oi.quantity) AS total_sold
